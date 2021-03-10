@@ -29,7 +29,7 @@ def iterate_findings(finding_object):
         if key == "findings":
             result = iterate_finding_object(value)        
         else:
-            sys.sterr.write("class object must start with key \"findings\"")
+            sys.stderr.write("class object must start with key \"findings\"")
     return result
 
 def iterate_finding_object(finding_array):
@@ -70,28 +70,28 @@ if __name__ == "__main__":
         if command == "cli.py":
             continue
         elif len(single_command) > 2:
-            sys.sterr.write("Unrecognized command format: ", command)
+            sys.stderr.write("Unrecognized command format: ", command + "")
         elif single_command[0] == "--sourceUrl":
             if(len(_source_url)) > 0:
-                sys.sterr.write("Duplicate command --sourceUrl")
+                sys.stderr.write("Duplicate command --sourceUrl")
             _source_url = single_command[1]
         elif single_command[0] == "--repo":
             if(len(_repo)) > 0:
-                sys.sterr.write("Duplicate command --repo")
+                sys.stderr.write("Duplicate command --repo")
             _repo = single_command[1]
         elif single_command[0] == "--class":
             if(len(_class)) > 0:
-                sys.sterr.write("Duplicate command --class")
+                sys.stderr.write("Duplicate command --class")
             _class = single_command[1]
         elif single_command[0] == "--type":
             if(len(_type)) > 0:
-                sys.sterr.write("Duplicate command --type")
+                sys.stderr.write("Duplicate command --type")
             _type = single_command[1]
         else:
-            sys.sterr.write("Unrecognized command: ", command)
+            sys.stderr.write("Unrecognized command: ", command + "\n")
     
     if len(_source_url) == 0:
-        sys.sterr.write("sourceUrl not found from command")
+        sys.stderr.write("sourceUrl not found from command")
 
     with urllib.request.urlopen(_source_url) as _source_file:
         result = iterate_json_file(json.load(_source_file))
@@ -101,4 +101,4 @@ if __name__ == "__main__":
             result = list(filter(lambda x: (_class == x["class"]), result))
         if len(_type) > 0:
             result = list(filter(lambda x: (_type == x["type"]), result))
-        sys.stdout.write(result)
+        sys.stdout.write(str(result) + "\n")
