@@ -1,0 +1,7 @@
+{
+    "result_base" : [{"repository": "github.com/myorg/a", "file": "file.py", "startLineNumber": "1", "endLineNumber": "2", "type": "sql-injection", "class": "injection"}, {"repository": "githu.com/myorg/a", "file": "file.py", "startLineNumber": "5", "endLineNumber": "10", "type": "command-injection", "class": "injection"}, {"repository": "github.com/myorg/a", "file": "file.py", "startLineNumber": "1", "endLineNumber": "2", "type": "weak-crypto", "class": "bad-crypto"}, {"repository": "github.com/myorg/c", "file": "file.py", "startLineNumber": "1", "endLineNumber": "5", "type": "weak-crypto-2", "class": "bad-crypto"}],
+    "result_repo" : [{"repository": "github.com/myorg/c", "file": "file.py", "startLineNumber": "1", "endLineNumber": "5", "type": "weak-crypto-2", "class": "bad-crypto"}],
+    "result_class" :[{"repository": "github.com/myorg/a", "file": "file.py", "startLineNumber": "1", "endLineNumber": "2", "type": "sql-injection", "class": "injection"}, {"repository": "githu.com/myorg/a", "file": "file.py", "startLineNumber": "5", "endLineNumber": "10", "type": "command-injection", "class": "injection"}],
+    "result_type" : [{"repository": "github.com/myorg/c", "file": "file.py", "startLineNumber": "1", "endLineNumber": "5", "type": "weak-crypto-2", "class": "bad-crypto"}],
+    "result_error" : "Duplicate command --sourceUrl"
+}
