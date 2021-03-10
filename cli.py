@@ -70,7 +70,8 @@ if __name__ == "__main__":
         if command == "cli.py":
             continue
         elif len(single_command) > 2:
-            sys.stderr.write("Unrecognized command format: ", command + "")
+            sys.stderr.write("Unrecognized command format: " + command + "\n")
+            sys.exit()
         elif single_command[0] == "--sourceUrl":
             if(len(_source_url)) > 0:
                 sys.stderr.write("Duplicate command --sourceUrl")
@@ -88,7 +89,8 @@ if __name__ == "__main__":
                 sys.stderr.write("Duplicate command --type")
             _type = single_command[1]
         else:
-            sys.stderr.write("Unrecognized command: ", command + "\n")
+            sys.stderr.write("Unrecognized command: " + command + "\n")
+            sys.exit()
     
     if len(_source_url) == 0:
         sys.stderr.write("sourceUrl not found from command")
